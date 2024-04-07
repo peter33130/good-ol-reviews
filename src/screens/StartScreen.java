@@ -4,7 +4,7 @@ import components.Screen;
 import helper.Helper;
 
 import java.util.Scanner;
-
+import java.io.File;
 public class StartScreen extends Screen {
     public StartScreen() {}
 
@@ -26,6 +26,16 @@ public class StartScreen extends Screen {
         // kijk welk item is geselecteert
         String menuItemSelected = scanner.next();
         Screen screen;
+
+        String folderPath = "./files/games/";
+        File folder = new File(folderPath);
+
+        // kijkt of folder leeg is(voor als een )
+        if ((menuItemSelected.equals("1") || menuItemSelected.equals("2")) && (!folder.exists())) {
+            Helper.clearScreen();
+            new StartScreen("Geen games gevonden").showScreen();
+        }
+        
         switch (menuItemSelected) {
             case "1" -> screen = new RankingScreen();
             case "2" -> screen = new DiscountScreen();
