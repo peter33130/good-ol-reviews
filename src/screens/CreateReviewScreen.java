@@ -32,18 +32,36 @@ public class CreateReviewScreen extends Screen {
 
         System.out.print("Welk cijfer geeft u de gameplay?: ");
         int gameplayGrade = scanner.nextInt();
+        if (!this.verifyRating(gameplayGrade)) {
+            System.out.println("Sorry, dit cijfer is niet geldig. Geef een cijfer tussen 1 en 100.");
+            Helper.clearScreen();
+            this.showScreen();
+            return;
+        }
         scanner.nextLine(); // bug fix
         System.out.print("Waarom geeft u dit cijfer voor de gameplay?: ");
         String gameplayContext = scanner.nextLine();
 
         System.out.print("Welk cijfer geeft u de graphics?: ");
         int graphicsGrade = scanner.nextInt();
+        if (!this.verifyRating(graphicsGrade)) {
+            System.out.println("Sorry, dit cijfer is niet geldig. Geef een cijfer tussen 1 en 100.");
+            Helper.clearScreen();
+            this.showScreen();
+            return;
+        }
         scanner.nextLine(); // bug fix
         System.out.print("Waarom geeft u dit cijfer voor de graphics?: ");
         String graphicsContext = scanner.nextLine();
 
         System.out.print("Welk cijfer geeft u de storyline?: ");
         int storylineGrade = scanner.nextInt();
+        if (!this.verifyRating(storylineGrade)) {
+            System.out.println("Sorry, dit cijfer is niet geldig. Geef een cijfer tussen 1 en 100.");
+            Helper.clearScreen();
+            this.showScreen();
+            return;
+        }
         System.out.print("Waarom geeft u dit cijfer voor de storyline?: ");
         scanner.nextLine(); // bug fix
         String storylineContext = scanner.nextLine();
@@ -59,6 +77,10 @@ public class CreateReviewScreen extends Screen {
         this.askForSurvey(scanner); // vraag voor vragenlijst
     }
 
+
+    public boolean verifyRating(int rating) {
+        return rating >= 1 && rating <= 100;
+    }
     public void askForSurvey(Scanner scanner) {
         System.out.print("Wilt u nog een korte vragenlijst invullen?: ");
 
