@@ -41,6 +41,7 @@ public class CreateReviewScreen extends Screen {
         System.out.print("Welk cijfer geeft u de graphics?: ");
         int graphicsGrade = scanner.nextInt();
         verifyRating(graphicsGrade);
+
         scanner.nextLine(); // bug fix
         System.out.print("Waarom geeft u dit cijfer voor de graphics?: ");
         String graphicsContext = scanner.nextLine();
@@ -63,7 +64,6 @@ public class CreateReviewScreen extends Screen {
         this.askForSurvey(scanner); // vraag voor vragenlijst
     }
 
-
     public void verifyRating(int rating) {
         if(rating < 1 || rating > 100){
             System.out.println("Sorry, dit cijfer is niet geldig. Geef een cijfer tussen 1 en 100.");
@@ -71,6 +71,7 @@ public class CreateReviewScreen extends Screen {
             this.showScreen();
         }
     }
+
     public void askForSurvey(Scanner scanner) {
         System.out.print("Wilt u nog een korte vragenlijst invullen?: ");
 
