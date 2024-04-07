@@ -1,5 +1,6 @@
 package screens;
 
+import components.Game;
 import components.Screen;
 import helper.Helper;
 
@@ -27,11 +28,8 @@ public class StartScreen extends Screen {
         String menuItemSelected = scanner.next();
         Screen screen;
 
-        String folderPath = "./files/games/";
-        File folder = new File(folderPath);
-
         // kijkt of folder leeg is(voor als een )
-        if ((menuItemSelected.equals("1") || menuItemSelected.equals("2")) && (!folder.exists())) {
+        if ((menuItemSelected.equals("1") || menuItemSelected.equals("2")) && Game.getAllGames().isEmpty()) {
             Helper.clearScreen();
             new StartScreen("Geen games gevonden").showScreen();
         }
