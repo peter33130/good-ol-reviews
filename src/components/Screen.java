@@ -1,5 +1,6 @@
 package components;
 
+import components.questions.FollowUpQuestion;
 import helper.Helper;
 
 public abstract class Screen {

@@ -7,11 +7,22 @@ import java.util.ArrayList;
 public class Game implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L; // dit is voor om het op te slaan
-    public String name;
-    public String category;
-    public double price;
-    public int grade;
-    public int totalReviews = 1;
+    private String name;
+    private String category;
+    private double price;
+    private int grade;
+    private int totalReviews = 1;
+
+    public String getName() { return this.name; }
+    public void setName(String name) { this.name = name; }
+    public void setCategory(String category) { this.category = category; }
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
+    public int getGrade() { return grade; }
+    public void setGrade(int grade) { this.grade = grade; }
+    public int getTotalReviews() { return totalReviews; }
+    public void setTotalReviews(int totalReviews) { this.totalReviews = totalReviews; }
+    public String getCategory() { return this.category; }
 
     public Game(String name, String category, double price, int grade) {
         this.name = name;

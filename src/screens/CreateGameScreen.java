@@ -17,7 +17,7 @@ public class CreateGameScreen extends Screen {
     public void showScreen() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("[Game aanmaken]");
+        System.out.println("[Game toevoegen of veranderen]");
 
         System.out.print("Wat is de naam van game?: ");
         String name = scanner.nextLine();

@@ -57,8 +57,8 @@ public class CreateReviewScreen extends Screen {
         Review review = new Review(game, gameplayGrade, gameplayContext, graphicsGrade, graphicsContext, storylineGrade, storylineContext);
         review.saveReview();
 
-        game.totalReviews += 1;
-        game.grade = (review.averageGrade + game.grade) / game.totalReviews;
+        game.setTotalReviews(game.getTotalReviews() + 1);
+        game.setGrade(review.getAverageGrade() + game.getGrade() / game.getTotalReviews());
         game.saveGame();
 
         this.askForSurvey(scanner); // vraag voor vragenlijst

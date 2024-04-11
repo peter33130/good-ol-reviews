@@ -4,7 +4,15 @@ import components.questions.FollowUpQuestion;
 import components.questions.NormalQuestion;
 
 public abstract class Survey {
-    public NormalQuestion[] questions;
+    private NormalQuestion[] questions;
+
+    public NormalQuestion[] getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(NormalQuestion[] questions) {
+        this.questions = questions;
+    }
 
     public Survey(NormalQuestion[] questions) {
         this.questions = questions;

@@ -26,15 +26,15 @@ public class DiscountScreen extends Screen {
             if (game.inSale()) discount.add(game);
 
         // filter van hoogste naar laagste
-        discount.sort((dis1, dis2) -> Integer.compare(dis2.grade, dis1.grade));
+        discount.sort((dis1, dis2) -> Integer.compare(dis2.getGrade(), dis1.getGrade()));
 
         Helper.clearScreen();
 
         // print items
         int counter = 1;
         for (Game game : discount) {
-            double price = game.inSale() ? game.price / 100 * 80 : game.price;
-            System.out.print(STR."\{counter}. \{game.name}, prijs: €\{Helper.formatToEuro(price)}");
+            double price = game.inSale() ? game.getPrice() / 100 * 80 : game.getPrice();
+            System.out.print(STR."\{counter}. \{game.getName()}, prijs: €\{Helper.formatToEuro(price)}");
             if (game.inSale()) System.out.print(" (KORTING)");
             System.out.println();
             counter++;

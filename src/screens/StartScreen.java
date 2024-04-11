@@ -1,6 +1,5 @@
 package screens;
 
-import components.Game;
 import components.Screen;
 import helper.Helper;
 
@@ -21,15 +20,18 @@ public class StartScreen extends Screen {
         System.out.println("1. Ranglijst");
         System.out.println("2. Kortingen");
         System.out.println("3. Laat een review achter");
-        System.out.println("4. Voeg een nieuwe game toe");
+        System.out.println("4. Voeg een game toe / Game aanpassen");
         System.out.print("Voer het getal in van het menu waar u naar toe wilt: ");
 
         // kijk welk item is geselecteert
         String menuItemSelected = scanner.next();
         Screen screen;
 
+        String folderPath = "./files/games/";
+        File folder = new File(folderPath);
+
         // kijkt of folder leeg is(voor als een )
-        if ((menuItemSelected.equals("1") || menuItemSelected.equals("2")) && Game.getAllGames().isEmpty()) {
+        if ((menuItemSelected.equals("1") || menuItemSelected.equals("2")) && (!folder.exists())) {
             Helper.clearScreen();
             new StartScreen("Geen games gevonden").showScreen();
         }
@@ -46,14 +48,12 @@ public class StartScreen extends Screen {
         screen.showScreen(); // laat gekozen scherm zien
     }
 
-    public static void printSpaceInvaderArt() {
-        System.out.println("   ##          ##");
-        System.out.println("     ##      ##         )  )");
-        System.out.println("   ##############");
-        System.out.println(" ####  ######  ####");
-        System.out.println("######################");
-        System.out.println("##  ##############  ##     )   )");
-        System.out.println("##  ##          ##  ##");
-        System.out.println("      ####  ####");
+    public static void printlogo() {
+        System.out.println("  ________                  .___        .__/\\    ________                              ");
+        System.out.println(" /  _____/  ____   ____   __| _/   ____ |  )/   /  _____/_____    _____   ____   ______");
+        System.out.println("/   \\  ___ /  _ \\ /  _ \\ / __ |   /  _ \\|  |   /   \\  ___\\__  \\  /     \\_/ __ \\ /  ___/");
+        System.out.println("\\    \\_\\  (  <_> |  <_> ) /_/ |  (  <_> )  |__ \\    \\_\\  \\/ __ \\|  Y Y  \\  ___/ \\___ \\");
+        System.out.println(" \\______  /\\____/ \\____/\\____ |   \\____/|____/  \\______  (____  /__|_|  /\\___  >____  >");
+        System.out.println("        \\/                   \\/                        \\/     \\/      \\/     \\/     \\/");
     }
 }

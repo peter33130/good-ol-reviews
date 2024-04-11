@@ -14,7 +14,7 @@ public class Main {
     public void runMainMenu(String notification) {
         try {
             Helper.clearScreen(); // maak scherm leeg
-            StartScreen.printSpaceInvaderArt();
+            StartScreen.printlogo();
             StartScreen screen = new StartScreen(notification);
             System.out.println();
             screen.showScreen();

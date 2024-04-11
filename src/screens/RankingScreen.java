@@ -22,7 +22,7 @@ public class RankingScreen extends Screen {
         System.out.println("[Rangschikking]");
 
         List<String> categories = new ArrayList<>();
-        for (Game game : Game.getAllGames()) categories.add(game.category);
+        for (Game game : Game.getAllGames()) categories.add(game.getCategory());
         categories = categories.stream().distinct().collect(Collectors.toList()); // haal dubbelen weg
 
         Scanner scanner = new Scanner(System.in);
@@ -45,14 +45,15 @@ public class RankingScreen extends Screen {
 
         // sorteer games op cijfer
         ArrayList<Game> games = Game.getAllGames();
-        games.sort((game1, game2) -> Integer.compare(game2.grade, game1.grade));
+        games.sort((game1, game2) -> Integer.compare(game2.getGrade(), game1.getGrade()));
 
         // print alle games
         counter = 1;
         for (Game game : games) {
-            if (category != null && !category.equals(game.category)) continue;
-            System.out.print(STR."\{counter}. \{game.name}, prijs: €\{Helper.formatToEuro(game.price)}, rating: \{game.grade}");
-            if (game.inSale()) System.out.print(" (KORTING)");
+            if (category != null && !category.equals(game.getCategory())) continue;
+            double price = game.inSale() ? game.getPrice() / 100 * 80 : game.getPrice();
+            System.out.print(STR."\{counter}. \{game.getName()}, prijs: van €\{Helper.formatToEuro(price)}, rating: \{game.getGrade()}");
+            if (game.inSale()) System.out.print(" (20% KORTING)");
             System.out.println();
             counter++;
         }
