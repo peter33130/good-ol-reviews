@@ -52,7 +52,7 @@ public class RankingScreen extends Screen {
         for (Game game : games) {
             if (category != null && !category.equals(game.getCategory())) continue;
             double price = game.inSale() ? game.getPrice() / 100 * 80 : game.getPrice();
-            System.out.print(STR."\{counter}. \{game.getName()}, prijs: van €\{Helper.formatToEuro(price)}, rating: \{game.getGrade()}");
+            System.out.print(STR."\{counter}. \{game.getName()}, prijs: €\{Helper.formatToEuro(price)}, rating: \{game.getGrade()}");
             if (game.inSale()) System.out.print(" (20% KORTING)");
             System.out.println();
             counter++;

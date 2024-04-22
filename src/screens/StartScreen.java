@@ -24,19 +24,19 @@ public class StartScreen extends Screen {
         System.out.print("Voer het getal in van het menu waar u naar toe wilt: ");
 
         // kijk welk item is geselecteert
-        String menuItemSelected = scanner.next();
+        String selected = scanner.next();
         Screen screen;
 
         String folderPath = "./files/games/";
         File folder = new File(folderPath);
 
         // kijkt of folder leeg is(voor als een )
-        if ((menuItemSelected.equals("1") || menuItemSelected.equals("2")) && (!folder.exists())) {
+        if ((selected.equals("1") || selected.equals("2") | selected.equals("3")) && !folder.exists()) {
             Helper.clearScreen();
             new StartScreen("Geen games gevonden").showScreen();
         }
         
-        switch (menuItemSelected) {
+        switch (selected) {
             case "1" -> screen = new RankingScreen();
             case "2" -> screen = new DiscountScreen();
             case "3" -> screen = new CreateReviewScreen();
