@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Review implements Serializable {
-    private String uuid;
+    public final String uuid = Helper.uuid();
     private Game game;
     private int gameplayGrade;
     private String gameplayContext;
@@ -33,14 +33,6 @@ public class Review implements Serializable {
         this.storylineGrade = storylineGrade;
         this.storylineContext = storylineContext;
         this.averageGrade = (gameplayGrade + graphicsGrade + storylineGrade) / 3;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     public Game getGame() {
@@ -109,8 +101,6 @@ public class Review implements Serializable {
 
     /** Save the current object as a review */
     public void saveReview() {
-        this.uuid = Helper.uuid();
-
         String dirpath = STR."./files/games/\{this.game.getName()}/reviews/";
         File directories = new File(dirpath);
         if (!directories.exists()) {
